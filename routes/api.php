@@ -24,3 +24,15 @@ Rest::resource('usuarios', UsuariosController::class);
 
 //Login
 Route::post('/login', [UsuariosController::class, 'login']);
+
+//Ver datos por id de usuario
+Route::get('/usuarios/{id}', [UsuariosController::class, 'show']);
+
+//Verificar Cedula
+Route::get('/cedula/{cedula}', [UsuariosController::class, 'cedula']);
+
+//Restablecer contraseña por cédula
+Route::post('/resetpassword', [UsuariosController::class, 'resetPasswordByCedula']);
+
+//Verificar cédula
+Route::post('/verifycedula', [UsuariosController::class, 'verifyCedula']);

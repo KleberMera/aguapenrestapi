@@ -20,30 +20,106 @@ class UsuariosController extends RestController
 
 
 
-   //Login
-   public function login(Request $request)
-   {
-       $request->validate([
-           'usuario' => 'required|string',
-           'password' => 'required|string',
-       ]);
+    //Login
+    public function login(Request $request)
+    {
+        $request->validate([
+            'usuario' => 'required|string',
+            'password' => 'required|string',
+        ]);
 
-       $usuario = Usuarios::where('usuario', $request->usuario)->first();
+        $usuario = Usuarios::where('usuario', $request->usuario)->first();
 
-       if (!$usuario || !Hash::check($request->password, $usuario->password)) {
-           throw ValidationException::withMessages([
-               'usuario' => ['Las credenciales proporcionadas son incorrectas.'],
-           ]);
-       }
+        if (!$usuario || !Hash::check($request->password, $usuario->password)) {
+            throw ValidationException::withMessages([
+                'usuario' => ['Las credenciales proporcionadas son incorrectas.'],
+            ]);
+        }
 
-       // Puedes generar un token de API si es necesario
-       $token = $usuario->createToken('auth_token')->plainTextToken;
+        // Puedes generar un token de API si es necesario
+        $token = $usuario->createToken('auth_token')->plainTextToken;
 
-       return response()->json([
-           'message' => 'Login exitoso',
-           'usuario' => $usuario,
-           'token' => $token,
-       ]);
-   }
+        return response()->json([
+            'message' => 'Login exitoso',
+            'usuario' => [
+                'id' => $usuario->id,
+                'nombres' => $usuario->nombres,
+                'apellidos' => $usuario->apellidos,
+            ],
+            'token' => $token,
+        ]);
+    }
+
+    //Ver datos por id de usuario
+    public function show(Request $request)
+    {
+
+
+        $usuario = Usuarios::where('id', $request->id)->first();
+
+        if (!$usuario) {
+            throw ValidationException::withMessages([
+                'id' => ['El usuario no existe.'],
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'Datos exitoso',
+            'usuario' =>  $usuario,
+        ]);
+    }
+
+
+    // Verificar cédula
+    public function verifyCedula(Request $request)
+    {
+        $message = "";
+        $status = "";
+        $request->validate([
+            'cedula' => 'required|string',
+        ]);
+
+        $usuario = Usuarios::where('cedula', $request->cedula)->first();
+
+        if (!$usuario) {
+            $message = "La cédula proporcionada no existe.";
+            $status = "0";
+        } else {
+            $message = "Verificación de cédula exitosa";
+            $status = "1";
+        }
+
+        return response()->json([
+            'message' => $message,
+            'status' => $status,
+        ]);
+    }
+
+    // Restablecer contraseña por cédula
+    public function resetPasswordByCedula(Request $request)
+    {
+        $message = "";
+        $status = "";
+        $request->validate([
+            'cedula' => 'required|string',
+            'new_password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $usuario = Usuarios::where('cedula', $request->cedula)->first();
+
+        if (!$usuario) {
+            $message = "La cédula proporcionada no existe.";
+            $status = "0";
+        } else {
+            $usuario->password = Hash::make($request->new_password);
+            $usuario->save();
+            $message = "Contraseña restablecida exitosamente";
+            $status = "1";
+        }
+
+        return response()->json([
+            'message' => $message,
+            'status' => $status,
+        ]);
+    }
 }
-
