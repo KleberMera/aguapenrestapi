@@ -27,6 +27,7 @@ class RegistroController extends RestController
     }
 
 
+    
      // Función para obtener los registros con detalles
      public function obtenerRegistrosConDetalles()
      {
