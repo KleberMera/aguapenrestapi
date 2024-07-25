@@ -12,9 +12,6 @@ class Registro extends Model
         'id_usuario',
         'fecha_registro',
         'hora_registro',
-        'observaciones',
-
-
-
+        'observacion',
     ];
 }

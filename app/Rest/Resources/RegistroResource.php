@@ -26,7 +26,7 @@ class RegistroResource extends RestResource
             'id_usuario',
             'fecha_registro',
             'hora_registro',
-            'observaciones',
+            'observacion',
 
         ];
     }

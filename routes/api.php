@@ -14,6 +14,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+//Rutas de Laravel Rest API
 Rest::resource('productos', ProductosController::class);
 Rest::resource('usuariostrabajadores', UsuariosTrabajadoresController::class);
 Rest::resource('registros', RegistroController::class);
@@ -28,11 +29,15 @@ Route::post('/login', [UsuariosController::class, 'login']);
 //Ver datos por id de usuario
 Route::get('/usuarios/{id}', [UsuariosController::class, 'show']);
 
-//Verificar Cedula
-Route::get('/cedula/{cedula}', [UsuariosController::class, 'cedula']);
 
 //Restablecer contraseña por cédula
 Route::post('/resetpassword', [UsuariosController::class, 'resetPasswordByCedula']);
 
 //Verificar cédula
 Route::post('/verifycedula', [UsuariosController::class, 'verifyCedula']);
+
+//Ultimo id de registro
+Route::get('/idlastregistro', [RegistroController::class, 'ultimoIdRegistro']);
+
+//Obtener registros con detalles
+Route::get('/obtenerRegistrosConDetalles', [RegistroController::class, 'obtenerRegistrosConDetalles']);
