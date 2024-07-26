@@ -46,7 +46,7 @@ Route::post('/verifycedula', [UsuariosController::class, 'verifyCedula']);
 Route::get('/idlastregistro', [RegistroController::class, 'ultimoIdRegistro']);
 
 //Ultimo id de registro de area
-Route::get('/idlastregistrarea', [RegistroAreaController::class, 'lastIdRegistroArea']);
+Route::get('/idlastregistroarea', [RegistroAreaController::class, 'lastIdRegistroArea']);
 
 //Obtener registros con detalles
 Route::get('/obtenerRegistrosConDetalles', [RegistroController::class, 'obtenerRegistrosConDetalles']);
