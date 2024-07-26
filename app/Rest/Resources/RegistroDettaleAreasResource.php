@@ -22,7 +22,12 @@ class RegistroDettaleAreasResource extends RestResource
     public function fields(\Lomkit\Rest\Http\Requests\RestRequest $request): array
     {
         return [
-            'id'
+            'id',
+            'id_registro_area',
+            'id_producto',
+            'cantidad',
+
+
         ];
     }
 

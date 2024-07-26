@@ -22,7 +22,11 @@ class RegistroAreaResource extends RestResource
     public function fields(\Lomkit\Rest\Http\Requests\RestRequest $request): array
     {
         return [
-            'id'
+            'id',
+            'id_area',
+            'fecha_registro',
+            'hora_registro',
+            'observacion'
         ];
     }
 
