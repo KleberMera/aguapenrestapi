@@ -1,7 +1,10 @@
 <?php
 
+use App\Rest\Controllers\AreasController;
 use App\Rest\Controllers\ProductosController;
+use App\Rest\Controllers\RegistroAreaController;
 use App\Rest\Controllers\RegistroController;
+use App\Rest\Controllers\RegistroDetalleAreasController;
 use App\Rest\Controllers\RegistroDetalleController;
 use App\Rest\Controllers\RolesController;
 use App\Rest\Controllers\UsuariosController;
@@ -21,6 +24,9 @@ Rest::resource('registros', RegistroController::class);
 Rest::resource('registrosdetalle', RegistroDetalleController::class);
 Rest::resource('roles', RolesController::class);
 Rest::resource('usuarios', UsuariosController::class);
+Rest::resource('areas', AreasController::class);
+Rest::resource('registroareas', RegistroAreaController::class);
+Rest::resource('registrodetalleareas', RegistroDetalleAreasController::class);
 
 
 //Login
