@@ -47,7 +47,7 @@ class RegistroAreaController extends RestController
               ->orderBy('p.nombre_producto')
               ->get();
   
-          return response()->json($registrosConDetalles);
+          return response()->json(['data' => $registrosConDetalles]);
       }
    
 }
