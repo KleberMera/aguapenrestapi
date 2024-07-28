@@ -29,23 +29,14 @@ Rest::resource('registroareas', RegistroAreaController::class);
 Rest::resource('registrodetalleareas', RegistroDetalleAreasController::class);
 
 
-//Obtener todos los trabajadores
+//Obtener todos los datos
 Route::get('/allusersworkers', [UsuariosTrabajadoresController::class, 'getAllUsuariosTrabajadores']);
 Route::get('/allproducts', [ProductosController::class, 'getAllProductos']);
-
-
-//Login
-Route::post('/login', [UsuariosController::class, 'login']);
+Route::get('/allareas', [AreasController::class, 'getAllAreas']);
+Route::get('/allusersadmin', [UsuariosController::class, 'getAllUsersAdmin']);
 
 //Ver datos por id de usuario
 Route::get('/usuarios/{id}', [UsuariosController::class, 'show']);
-
-
-//Restablecer contraseña por cédula
-Route::post('/resetpassword', [UsuariosController::class, 'resetPasswordByCedula']);
-
-//Verificar cédula
-Route::post('/verifycedula', [UsuariosController::class, 'verifyCedula']);
 
 //Ultimo id de registro
 Route::get('/idlastregistro', [RegistroController::class, 'ultimoIdRegistro']);
@@ -61,3 +52,13 @@ Route::get('/obtenerRegistrosConDetallesArea', [RegistroAreaController::class, '
 
 //Obtener cantidad de Usuarios
 Route::get('/countusersdata', [UsuariosTrabajadoresController::class, 'countusersdata']);
+
+//Login
+Route::post('/login', [UsuariosController::class, 'login']);
+
+//Restablecer contraseña por cédula
+Route::post('/resetpassword', [UsuariosController::class, 'resetPasswordByCedula']);
+
+//Verificar cédula
+Route::post('/verifycedula', [UsuariosController::class, 'verifyCedula']);
+

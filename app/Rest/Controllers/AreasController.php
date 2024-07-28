@@ -4,6 +4,8 @@ namespace App\Rest\Controllers;
 
 use App\Rest\Controller as RestController;
 use App\Rest\Resources\AreasResource;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AreasController extends RestController
 {
@@ -13,4 +15,16 @@ class AreasController extends RestController
      * @var class-string<\Lomkit\Rest\Http\Resource>
      */
     public static $resource = AreasResource::class;
+
+
+    // Obtener todos los areas
+    public function  getAllAreas(Request $request)
+    {
+         $areas = DB::table('areas')->get();
+ 
+         return response()->json([
+             'message' => 'Datos obtenidos exitosamente',
+             'data' => $areas,
+         ]);
+     }
 }
