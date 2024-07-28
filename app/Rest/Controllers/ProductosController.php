@@ -27,4 +27,13 @@ class ProductosController extends RestController
              'data' => $products,
          ]);
      }
+
+    //Funcio para saber cuantos usuarios trabajadores hay en la base de datos
+    public function countProducts(){
+        $countproducts = DB::table('productos')->count();
+        return response()->json(        
+            ['data' => $countproducts],
+        );
+    }
+
 }

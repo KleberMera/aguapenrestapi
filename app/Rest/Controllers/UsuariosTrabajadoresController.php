@@ -17,8 +17,8 @@ class UsuariosTrabajadoresController extends RestController
     public static $resource = UsuariosTrabajadoresResource::class;
 
 
-    //Funcio para saber cuantos usuarios trabajadores hay en la base de datos
-    public function countusersdata(){
+  
+    public function countUsersWorkers(){
         $countusers = DB::table('usuarios_trabajadores')->count();
         return response()->json(        
             ['data' => $countusers],

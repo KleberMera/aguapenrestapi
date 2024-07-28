@@ -35,6 +35,11 @@ Route::get('/allproducts', [ProductosController::class, 'getAllProductos']);
 Route::get('/allareas', [AreasController::class, 'getAllAreas']);
 Route::get('/allusersadmin', [UsuariosController::class, 'getAllUsersAdmin']);
 
+//Obtener cantidad de datos
+Route::get('/countusersworkers', [UsuariosTrabajadoresController::class, 'countUsersWorkers']);
+Route::get('/countproducts', [ProductosController::class, 'countProducts']);
+Route::get('/countareas', [AreasController::class, 'countareas']);
+
 //Ver datos por id de usuario
 Route::get('/usuarios/{id}', [UsuariosController::class, 'show']);
 
@@ -50,8 +55,7 @@ Route::get('/obtenerRegistrosConDetalles', [RegistroController::class, 'obtenerR
 //Obtener registros con detalles de area
 Route::get('/obtenerRegistrosConDetallesArea', [RegistroAreaController::class, 'obtenerRegistrosConDetallesArea']);
 
-//Obtener cantidad de Usuarios
-Route::get('/countusersdata', [UsuariosTrabajadoresController::class, 'countusersdata']);
+
 
 //Login
 Route::post('/login', [UsuariosController::class, 'login']);

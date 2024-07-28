@@ -17,6 +17,14 @@ class RegistroAreaController extends RestController
     public static $resource = RegistroAreaResource::class;
 
 
+    public function countareas(){
+        $countareas = DB::table('areas')->count();
+        return response()->json(        
+            ['data' => $countareas],
+        );
+    }
+
+
      //Funcion para obtner el ultimo id de registro
      public function lastIdRegistroArea(){
         $ultimoRegistro = RegistroArea::orderBy('id', 'desc')->first();

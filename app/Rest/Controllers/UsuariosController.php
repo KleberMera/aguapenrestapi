@@ -6,6 +6,7 @@ use App\Models\Usuarios;
 use App\Rest\Controller as RestController;
 use App\Rest\Resources\UsuariosResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
@@ -17,6 +18,18 @@ class UsuariosController extends RestController
      * @var class-string<\Lomkit\Rest\Http\Resource>
      */
     public static $resource = UsuariosResource::class;
+
+
+    // Obtener todos los productos
+    public function  getAllUsersAdmin(Request $request)
+    {
+         $users = DB::table('usuarios')->get();
+ 
+         return response()->json([
+             'message' => 'Datos obtenidos exitosamente',
+             'data' => $users,
+         ]);
+     }
 
 
 
