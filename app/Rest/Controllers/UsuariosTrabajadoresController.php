@@ -4,6 +4,7 @@ namespace App\Rest\Controllers;
 
 use App\Rest\Controller as RestController;
 use App\Rest\Resources\UsuariosTrabajadoresResource;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class UsuariosTrabajadoresController extends RestController
@@ -23,4 +24,15 @@ class UsuariosTrabajadoresController extends RestController
             ['data' => $countusers],
         );
     }
+
+    // Obtener todos los usuarios
+    public function getAllUsuariosTrabajadores(Request $request)
+    {
+         $usuarios = DB::table('usuarios_trabajadores')->get();
+ 
+         return response()->json([
+             'message' => 'Datos obtenidos exitosamente',
+             'data' => $usuarios,
+         ]);
+     }
 }

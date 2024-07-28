@@ -18,16 +18,6 @@ class UsuariosController extends RestController
      */
     public static $resource = UsuariosResource::class;
 
-     // Obtener todos los usuarios
-     public function getAllUsuariosTrabajadores(Request $request)
-     {
-         $usuarios = Usuarios::all();
- 
-         return response()->json([
-             'message' => 'Datos obtenidos exitosamente',
-             'data' => $usuarios,
-         ]);
-     }
 
 
     //Login

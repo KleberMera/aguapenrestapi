@@ -30,7 +30,7 @@ Rest::resource('registrodetalleareas', RegistroDetalleAreasController::class);
 
 
 //Obtener todos los usuarios
-Route::get('/obtenerusuarios', [UsuariosTrabajadoresController::class, 'getAllUsuariosTrabajadores']);
+Route::get('/allusers', [UsuariosTrabajadoresController::class, 'getAllUsuariosTrabajadores']);
 
 
 //Login
