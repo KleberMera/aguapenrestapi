@@ -29,6 +29,10 @@ Rest::resource('registroareas', RegistroAreaController::class);
 Rest::resource('registrodetalleareas', RegistroDetalleAreasController::class);
 
 
+//Obtener todos los usuarios
+Route::get('/obtenerusuarios', [UsuariosTrabajadoresController::class, 'getAllUsuariosTrabajadores']);
+
+
 //Login
 Route::post('/login', [UsuariosController::class, 'login']);
 

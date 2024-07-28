@@ -64,7 +64,6 @@ class UsuariosTrabajadoresResource extends RestResource
             10,
             25,
             50,
-            -1
         ];
     }
 
