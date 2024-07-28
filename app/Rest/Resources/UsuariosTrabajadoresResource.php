@@ -63,7 +63,8 @@ class UsuariosTrabajadoresResource extends RestResource
         return [
             10,
             25,
-            50
+            50,
+            -1
         ];
     }
 
