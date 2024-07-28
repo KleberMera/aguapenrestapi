@@ -8,7 +8,6 @@ use App\Rest\Resources\UsuariosResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
-use Symfony\Component\HttpFoundation\Response;
 
 class UsuariosController extends RestController
 {
@@ -24,19 +23,17 @@ class UsuariosController extends RestController
     //Login
     public function login(Request $request)
     {
-        $message = "";
-        $http_res = Response::HTTP_OK;
+
         $request->validate([
             'usuario' => 'required|string',
             'password' => 'required|string',
         ]);
 
         $usuario = Usuarios::where('usuario', $request->usuario)->first();
-
+        $message = "";
 
         if (!$usuario || !Hash::check($request->password, $usuario->password)) {
             $message = "Las credenciales proporcionadas son incorrectas.";
-            $http_res = Response::HTTP_UNAUTHORIZED;
         } else {
             // Puedes generar un token de API si es necesario
             $token = $usuario->createToken('auth_token')->plainTextToken;
@@ -46,7 +43,7 @@ class UsuariosController extends RestController
 
 
 
-        return response( $http_res )->json([
+        return response()->json([
             'message' => $message,
             'usuario' => [
                 'id' => $usuario->id,
