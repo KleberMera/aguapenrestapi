@@ -38,7 +38,7 @@ Route::get('/allusersadmin', [UsuariosController::class, 'getAllUsersAdmin']);
 //Obtener cantidad de datos
 Route::get('/countusersworkers', [UsuariosTrabajadoresController::class, 'countUsersWorkers']);
 Route::get('/countproducts', [ProductosController::class, 'countProducts']);
-Route::get('/countareas', [AreasController::class, 'countareas']);
+Route::get('/countareas', [AreasController::class, 'countAreas']);
 
 //Ver datos por id de usuario
 Route::get('/usuarios/{id}', [UsuariosController::class, 'show']);

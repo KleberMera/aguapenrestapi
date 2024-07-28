@@ -27,4 +27,12 @@ class AreasController extends RestController
              'data' => $areas,
          ]);
      }
+
+
+     public function countAreas(){
+        $countareas = DB::table('areas')->count();
+        return response()->json(        
+            ['data' => $countareas],
+        );
+    }
 }
