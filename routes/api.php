@@ -53,3 +53,6 @@ Route::get('/obtenerRegistrosConDetalles', [RegistroController::class, 'obtenerR
 
 //Obtener registros con detalles de area
 Route::get('/obtenerRegistrosConDetallesArea', [RegistroAreaController::class, 'obtenerRegistrosConDetallesArea']);
+
+//Obtener cantidad de Usuarios
+Route::get('/countusersdata', [UsuariosTrabajadoresController::class, 'countusersdata']);
