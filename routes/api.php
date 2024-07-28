@@ -17,7 +17,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-//Rutas de Laravel Rest API
+//Rutas de Laravel Rest API CRUD Create, Read, Update, Delete
 Rest::resource('productos', ProductosController::class);
 Rest::resource('usuariostrabajadores', UsuariosTrabajadoresController::class);
 Rest::resource('registros', RegistroController::class);
@@ -29,8 +29,9 @@ Rest::resource('registroareas', RegistroAreaController::class);
 Rest::resource('registrodetalleareas', RegistroDetalleAreasController::class);
 
 
-//Obtener todos los usuarios
-Route::get('/allusers', [UsuariosTrabajadoresController::class, 'getAllUsuariosTrabajadores']);
+//Obtener todos los trabajadores
+Route::get('/allusersworkers', [UsuariosTrabajadoresController::class, 'getAllUsuariosTrabajadores']);
+Route::get('/allproducts', [ProductosController::class, 'getAllProductos']);
 
 
 //Login
