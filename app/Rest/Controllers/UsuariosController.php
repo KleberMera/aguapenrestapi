@@ -6,8 +6,11 @@ use App\Models\Usuarios;
 use App\Rest\Controller as RestController;
 use App\Rest\Resources\UsuariosResource;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+
+
 use Illuminate\Validation\ValidationException;
 
 class UsuariosController extends RestController
@@ -23,49 +26,59 @@ class UsuariosController extends RestController
     // Obtener todos los productos
     public function  getAllUsersAdmin(Request $request)
     {
-         $users = DB::table('usuarios')->get();
- 
-         return response()->json([
-             'message' => 'Datos obtenidos exitosamente',
-             'data' => $users,
-         ]);
-     }
+        $users = DB::table('usuarios')->get();
+
+        return response()->json([
+            'message' => 'Datos obtenidos exitosamente',
+            'data' => $users,
+        ]);
+    }
 
 
 
-    //Login
     public function login(Request $request)
     {
-
         $request->validate([
             'usuario' => 'required|string',
             'password' => 'required|string',
         ]);
 
         $usuario = Usuarios::where('usuario', $request->usuario)->first();
-        $message = "";
 
-        if (!$usuario || !Hash::check($request->password, $usuario->password)) {
-            $message = "Las credenciales proporcionadas son incorrectas.";
-        } else {
-            // Puedes generar un token de API si es necesario
-            $token = $usuario->createToken('auth_token')->plainTextToken;
-
-            $message = "Login exitoso";
+        if (!$usuario) {
+            return response()->json([
+                'message' => 'El usuario no existe.',
+            ], 404);
         }
 
+        if (!Hash::check($request->password, $usuario->password)) {
+            return response()->json([
+                'message' => 'Contraseña incorrecta.',
+            ], 401);
+        }
 
+        // Generar el token de API con lógica personalizada para expiración
+        $tokenResult = $usuario->createToken('auth_token');
+        $token = $tokenResult->plainTextToken;
+        $expiration = now()->addMinutes(config('sanctum.expiration'))->toDateTimeString();
 
         return response()->json([
-            'message' => $message,
+            'message' => 'Login exitoso',
             'usuario' => [
                 'id' => $usuario->id,
                 'nombres' => $usuario->nombres,
                 'apellidos' => $usuario->apellidos,
             ],
-            'token' => $token,
+            'token' => [
+                'token' => $token,
+                'token_type' => 'Bearer',
+                'expiration' => $expiration,
+            ]
         ]);
     }
+
+
+
 
     //Ver datos por id de usuario
     public function show(Request $request)
