@@ -57,11 +57,17 @@ Route::get('/idlastregistro', [RegistroController::class, 'ultimoIdRegistro']);
 //Ultimo id de registro de area
 Route::get('/idlastregistroarea', [RegistroAreaController::class, 'lastIdRegistroArea']);
 
+//Ultimo id de registro de vehiculo 
+Route::get('/idlastregistrovehiculos', [RegistroVehiculosController::class, 'lastIdRegistroVehiculos']);
+
 //Obtener registros con detalles
 Route::get('/obtenerRegistrosConDetalles', [RegistroController::class, 'obtenerRegistrosConDetalles']);
 
 //Obtener registros con detalles de area
 Route::get('/obtenerRegistrosConDetallesArea', [RegistroAreaController::class, 'obtenerRegistrosConDetallesArea']);
+
+//Obtener registros con detalles de vehiculo
+Route::get('/obtenerRegistrosConDetallesVehiculos', [RegistroVehiculosController::class, 'obtenerRegistrosConDetallesVehiculos']);
 
 Route::post('/verify-token', [UsuariosController::class, 'verifyToken']);
 //Login
