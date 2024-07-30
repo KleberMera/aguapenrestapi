@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 
 
 use Illuminate\Validation\ValidationException;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class UsuariosController extends RestController
 {
@@ -34,7 +35,32 @@ class UsuariosController extends RestController
         ]);
     }
 
+    public function verifyToken(Request $request)
+    {
+        $token = $request->bearerToken();
 
+        if (!$token) {
+            return response()->json(['message' => 'Token no proporcionado.'], 401);
+        }
+
+        $token = explode('|', $token, 2)[1] ?? null;
+
+        if (!$token) {
+            return response()->json(['message' => 'Token no válido.'], 401);
+        }
+
+        $tokenModel = PersonalAccessToken::findToken($token);
+
+        if (!$tokenModel || !$tokenModel->tokenable) {
+            return response()->json(['message' => 'Token no válido.'], 401);
+        }
+
+        if ($tokenModel->expires_at && $tokenModel->expires_at < now()) {
+            return response()->json(['message' => 'Token expirado.'], 401);
+        }
+
+        return response()->json(['message' => 'Token válido.']);
+    }
 
     public function login(Request $request)
     {
@@ -58,9 +84,10 @@ class UsuariosController extends RestController
         }
 
         // Generar el token de API con lógica personalizada para expiración
-        $tokenResult = $usuario->createToken('auth_token');
+        $expiration = now()->addMinutes(config('sanctum.expiration'));
+
+        $tokenResult = $usuario->createToken('auth_token', ['*'], $expiration);
         $token = $tokenResult->plainTextToken;
-        $expiration = now()->addMinutes(config('sanctum.expiration'))->toDateTimeString();
 
         return response()->json([
             'message' => 'Login exitoso',
@@ -72,13 +99,10 @@ class UsuariosController extends RestController
             'token' => [
                 'token' => $token,
                 'token_type' => 'Bearer',
-                'expiration' => $expiration,
+                'expiration' => $expiration->toDateTimeString(),
             ]
         ]);
     }
-
-
-
 
     //Ver datos por id de usuario
     public function show(Request $request)

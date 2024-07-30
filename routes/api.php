@@ -55,8 +55,7 @@ Route::get('/obtenerRegistrosConDetalles', [RegistroController::class, 'obtenerR
 //Obtener registros con detalles de area
 Route::get('/obtenerRegistrosConDetallesArea', [RegistroAreaController::class, 'obtenerRegistrosConDetallesArea']);
 
-
-
+Route::post('/verify-token', [UsuariosController::class, 'verifyToken']);
 //Login
 Route::post('/login', [UsuariosController::class, 'login']);
 
@@ -65,4 +64,3 @@ Route::post('/resetpassword', [UsuariosController::class, 'resetPasswordByCedula
 
 //Verificar cédula
 Route::post('/verifycedula', [UsuariosController::class, 'verifyCedula']);
-
