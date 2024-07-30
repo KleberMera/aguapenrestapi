@@ -41,6 +41,7 @@ Route::get('/allusersworkers', [UsuariosTrabajadoresController::class, 'getAllUs
 Route::get('/allproducts', [ProductosController::class, 'getAllProductos']);
 Route::get('/allareas', [AreasController::class, 'getAllAreas']);
 Route::get('/allusersadmin', [UsuariosController::class, 'getAllUsersAdmin']);
+Route::get('/allvehiculos', [VehiculosController::class, 'getAllVehiculos']);
 
 //Obtener cantidad de datos
 Route::get('/countusersworkers', [UsuariosTrabajadoresController::class, 'countUsersWorkers']);
