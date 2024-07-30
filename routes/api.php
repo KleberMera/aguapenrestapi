@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Registro;
 use App\Rest\Controllers\AreasController;
 use App\Rest\Controllers\ProductosController;
 use App\Rest\Controllers\RegistroAreaController;
@@ -7,10 +8,12 @@ use App\Rest\Controllers\RegistroController;
 use App\Rest\Controllers\RegistroDetalleAreasController;
 use App\Rest\Controllers\RegistroDetalleController;
 use App\Rest\Controllers\RegistroDetalleVehiculosController;
+use App\Rest\Controllers\RegistroVehiculosController;
 use App\Rest\Controllers\RolesController;
 use App\Rest\Controllers\UsuariosController;
 use App\Rest\Controllers\UsuariosTrabajadoresController;
 use App\Rest\Controllers\VehiculosController;
+use App\Rest\Resources\RegistroVehiculosResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Lomkit\Rest\Facades\Rest;
@@ -30,7 +33,7 @@ Rest::resource('areas', AreasController::class);
 Rest::resource('registroareas', RegistroAreaController::class);
 Rest::resource('registrodetalleareas', RegistroDetalleAreasController::class);
 Rest::resource('vehiculos', VehiculosController::class);
-Rest::resource('registrovehiculos', RegistroDetalleVehiculosController::class);
+Rest::resource('registrovehiculos', RegistroVehiculosController::class);
 Rest::resource('registrodetallevehiculos', RegistroDetalleVehiculosController::class);
 
 //Obtener todos los datos
