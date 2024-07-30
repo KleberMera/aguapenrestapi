@@ -22,7 +22,10 @@ class VehiculosResource extends RestResource
     public function fields(\Lomkit\Rest\Http\Requests\RestRequest $request): array
     {
         return [
-            'id'
+            'id',
+            'tipo',
+            'placa',
+            'descripcion',
         ];
     }
 
@@ -34,10 +37,7 @@ class VehiculosResource extends RestResource
     public function relations(\Lomkit\Rest\Http\Requests\RestRequest $request): array
     {
         return [
-            'id',
-            'tipo',
-            'placa',
-            'descripcion',
+       
         ];
     }
 
