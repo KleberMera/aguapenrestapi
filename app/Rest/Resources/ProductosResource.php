@@ -23,6 +23,7 @@ class ProductosResource extends RestResource
     {
         return [
             'id',
+            'codigo_producto',
             'nombre_producto',
             'fecha_producto',
             'hora_producto',
