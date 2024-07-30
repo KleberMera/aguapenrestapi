@@ -17,7 +17,7 @@ class RegistroController extends RestController
     public static $resource = RegistroResource::class;
 
 
-    //Funcion para obtner el ultimo id de registro
+    //Funcion para obtener el ultimo id de registro
     public function ultimoIdRegistro(){
         $ultimoRegistro = Registro::orderBy('id', 'desc')->first();
         
