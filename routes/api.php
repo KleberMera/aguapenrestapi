@@ -9,6 +9,7 @@ use App\Rest\Controllers\RegistroDetalleController;
 use App\Rest\Controllers\RolesController;
 use App\Rest\Controllers\UsuariosController;
 use App\Rest\Controllers\UsuariosTrabajadoresController;
+use App\Rest\Controllers\VehiculosController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Lomkit\Rest\Facades\Rest;
@@ -27,6 +28,7 @@ Rest::resource('usuarios', UsuariosController::class);
 Rest::resource('areas', AreasController::class);
 Rest::resource('registroareas', RegistroAreaController::class);
 Rest::resource('registrodetalleareas', RegistroDetalleAreasController::class);
+Rest::resource('vehiculos', VehiculosController::class);
 
 
 //Obtener todos los datos
