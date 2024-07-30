@@ -41,6 +41,7 @@ class RegistroController extends RestController
                  'u.tx_cedula as cedula',
                  'r.fecha_registro',
                  'p.nombre_producto',
+                 'p.codigo_producto',
                  'rd.cantidad',
                  'r.observacion',
                  DB::raw('SUM(rd.cantidad) OVER (PARTITION BY r.id) AS total_cantidades')
