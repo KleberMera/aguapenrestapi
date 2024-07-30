@@ -29,7 +29,7 @@ class RegistroVehiculosController extends RestController
 
 
          // Función para obtener registros con detalles
-      public function obtenerRegistrosConDetallesArea()
+      public function obtenerRegistrosConDetallesVehiculos()
       {
           $registrosConDetalles = DB::table('registro_vehiculos as r')
               ->join('registro_detalle_vehiculos as rd', 'r.id', '=', 'rd.id_registro_vehiculo')
@@ -39,7 +39,7 @@ class RegistroVehiculosController extends RestController
                   'r.id',
                   'r.fecha_registro',
                   'r.hora_registro',
-                  'v.nombre_vehiculo',
+                  'v.placa',
                   'p.nombre_producto',
                   'rd.cantidad',
                   'r.observacion',

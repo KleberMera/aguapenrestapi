@@ -60,6 +60,7 @@ Route::get('/idlastregistroarea', [RegistroAreaController::class, 'lastIdRegistr
 //Ultimo id de registro de vehiculo 
 Route::get('/idlastregistrovehiculos', [RegistroVehiculosController::class, 'lastIdRegistroVehiculos']);
 
+
 //Obtener registros con detalles
 Route::get('/obtenerRegistrosConDetalles', [RegistroController::class, 'obtenerRegistrosConDetalles']);
 
