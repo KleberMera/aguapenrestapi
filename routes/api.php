@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Registro;
+
 use App\Rest\Controllers\AreasController;
 use App\Rest\Controllers\ProductosController;
 use App\Rest\Controllers\RegistroAreaController;
@@ -13,7 +13,6 @@ use App\Rest\Controllers\RolesController;
 use App\Rest\Controllers\UsuariosController;
 use App\Rest\Controllers\UsuariosTrabajadoresController;
 use App\Rest\Controllers\VehiculosController;
-use App\Rest\Resources\RegistroVehiculosResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Lomkit\Rest\Facades\Rest;
