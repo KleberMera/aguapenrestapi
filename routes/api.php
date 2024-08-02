@@ -38,15 +38,16 @@ Route::post('login', [UserController::class, 'login']);
 Route::post('/resetpassword', [UserController::class, 'resetPasswordByCedula']);
 Route::post('/verifycedula', [UserController::class, 'verifyCedula']);
 
-Route::middleware('auth:sanctum')->post('logout', [UserController::class, 'logout']);
-Route::middleware('auth:sanctum')->get('allusers', [UserController::class, 'AllUsers']);
-Route::middleware('auth:sanctum')->get('users/{id}', [UserController::class, 'show']);
-Route::middleware('auth:sanctum')->get('allusersworkers', [UsuariosTrabajadoresController::class, 'getAllUsuariosTrabajadores']);
-
-
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('logout', [UserController::class, 'logout']);
+    Route::get('allusers', [UserController::class, 'AllUsers']);
+    Route::get('user', [UserController::class, 'show']);
+    Route::get('allusersworkers', [UsuariosTrabajadoresController::class, 'getAllUsuariosTrabajadores']);
+    Route::get('allproducts', [ProductosController::class, 'getAllProductos']);
+});
 
 //Obtener todos los datos
-Route::get('/allproducts', [ProductosController::class, 'getAllProductos']);
+//Route::get('/allproducts', [ProductosController::class, 'getAllProductos']);
 Route::get('/allareas', [AreasController::class, 'getAllAreas']);
 Route::get('/allvehiculos', [VehiculosController::class, 'getAllVehiculos']);
 

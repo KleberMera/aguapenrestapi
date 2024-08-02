@@ -45,7 +45,7 @@ class UserController extends RestController
         return response()->json([
             'usuario' => [
                 'id' => $user->id,
-                'role_id' => $user->rol_id,
+                'rol_id' => $user->rol_id,
                 'nombres' => $user->nombres,
                 'apellidos' => $user->apellidos,
             ],
@@ -64,13 +64,13 @@ class UserController extends RestController
     }
 
     //Ver datos por id de usuario
-    public function show($id)
+    public function show(Request $request)
     {
-        $users = User::findOrFail($id);
+        $user = $request->user(); // Obtener el usuario autenticado
 
         return response()->json([
             'message' => 'Datos obtenidos exitosamente',
-            'data' => $users,
+            'data' => $user,
         ]);
     }
 
