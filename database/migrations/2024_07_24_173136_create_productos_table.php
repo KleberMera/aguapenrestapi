@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_producto');
-            $table->date('fecha_producto');
+            $table->date('fecha_producto')->nullable();
             $table->time('hora_producto');
             $table->integer('stock_producto')->default(0);
             $table->integer('estado_producto')->default(1)->nullable();
