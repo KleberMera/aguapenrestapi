@@ -28,8 +28,6 @@ class UsuariosTrabajadoresResource extends RestResource
             'tx_cargo',
             'tx_area',
             'tx_correo',
-            'tx_vehiculo',
-            'tx_vehiculo_descripcion'
         ];
     }
 

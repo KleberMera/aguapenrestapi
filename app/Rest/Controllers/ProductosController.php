@@ -2,6 +2,7 @@
 
 namespace App\Rest\Controllers;
 
+use App\Models\Productos;
 use App\Rest\Controller as RestController;
 use App\Rest\Resources\ProductosResource;
 use Illuminate\Http\Request;
@@ -20,8 +21,9 @@ class ProductosController extends RestController
     // Obtener todos los productos
     public function  getAllProductos(Request $request)
     {
-         $products = DB::table('productos')->get();
- 
+
+         $products = Productos::all();
+
          return response()->json([
              'message' => 'Datos obtenidos exitosamente',
              'data' => $products,

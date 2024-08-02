@@ -14,8 +14,6 @@ class UsuariosTrabajadores extends Model
         'tx_cargo',
         'tx_area',
         'tx_correo',
-        'tx_vehiculo',
-        'tx_vehiculo_descripcion',
     ];
 
 }
