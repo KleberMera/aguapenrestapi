@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('fecha_producto');
             $table->time('hora_producto');
             $table->integer('stock_producto')->default(0);
+            $table->integer('estado_producto')->default(1)->nullable();
             $table->timestamps();
            
         });

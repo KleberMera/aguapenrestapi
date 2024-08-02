@@ -28,6 +28,7 @@ class ProductosResource extends RestResource
             'fecha_producto',
             'hora_producto',
             'stock_producto',
+            'estado_producto',
         ];
     }
 

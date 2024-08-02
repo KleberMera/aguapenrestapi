@@ -14,6 +14,7 @@ class Productos extends Model
         'fecha_producto',
         'hora_producto',
         'stock_producto',
+        'estado_producto',
     ];
 
    
