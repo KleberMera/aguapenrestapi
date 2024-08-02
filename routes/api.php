@@ -35,15 +35,19 @@ Rest::resource('users', UserController::class);
 
 
 Route::post('login', [UserController::class, 'login']);
+Route::post('/resetpassword', [UserController::class, 'resetPasswordByCedula']);
+Route::post('/verifycedula', [UserController::class, 'verifyCedula']);
+
 Route::middleware('auth:sanctum')->post('logout', [UserController::class, 'logout']);
 Route::middleware('auth:sanctum')->get('allusers', [UserController::class, 'AllUsers']);
 Route::middleware('auth:sanctum')->get('users/{id}', [UserController::class, 'show']);
 Route::middleware('auth:sanctum')->get('allusersworkers', [UsuariosTrabajadoresController::class, 'getAllUsuariosTrabajadores']);
-//Obtener todos los datos
 
+
+
+//Obtener todos los datos
 Route::get('/allproducts', [ProductosController::class, 'getAllProductos']);
 Route::get('/allareas', [AreasController::class, 'getAllAreas']);
-
 Route::get('/allvehiculos', [VehiculosController::class, 'getAllVehiculos']);
 
 //Obtener cantidad de datos
@@ -71,14 +75,3 @@ Route::get('/obtenerRegistrosConDetallesArea', [RegistroAreaController::class, '
 
 //Obtener registros con detalles de vehiculo
 Route::get('/obtenerRegistrosConDetallesVehiculos', [RegistroVehiculosController::class, 'obtenerRegistrosConDetallesVehiculos']);
-
-Route::post('/login', [UserController::class, 'login']);
-/*Route::post('/verify-token', [UsuariosController::class, 'verifyToken']);
-//Login
-
-
-//Restablecer contraseña por cédula
-Route::post('/resetpassword', [UsuariosController::class, 'resetPasswordByCedula']);
-
-//Verificar cédula
-Route::post('/verifycedula', [UsuariosController::class, 'verifyCedula']);*/

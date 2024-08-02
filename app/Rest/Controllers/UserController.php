@@ -53,9 +53,6 @@ class UserController extends RestController
         ]);
     }
 
-
-
-
     public function  AllUsers(Request $request)
     {
         $users = User::all();
@@ -65,7 +62,6 @@ class UserController extends RestController
             'data' => $users,
         ]);
     }
-
 
     //Ver datos por id de usuario
     public function show($id)
@@ -89,56 +85,5 @@ class UserController extends RestController
     }
 
 
-    // Verificar cédula
-    public function verifyCedula(Request $request)
-    {
-        $message = "";
-        $status = "";
-        $request->validate([
-            'cedula' => 'required|string',
-        ]);
-
-        $usuario = User::where('cedula', $request->cedula)->first();
-
-        if (!$usuario) {
-            $message = "La cédula proporcionada no existe.";
-            $status = "0";
-        } else {
-            $message = "Verificación de cédula exitosa";
-            $status = "1";
-        }
-
-        return response()->json([
-            'message' => $message,
-            'status' => $status,
-        ]);
-    }
-
-    // Restablecer contraseña por cédula
-    public function resetPasswordByCedula(Request $request)
-    {
-        $message = "";
-        $status = "";
-        $request->validate([
-            'cedula' => 'required|string',
-            'new_password' => 'required|string|min:8|confirmed',
-        ]);
-
-        $usuario = User::where('cedula', $request->cedula)->first();
-
-        if (!$usuario) {
-            $message = "La cédula proporcionada no existe.";
-            $status = "0";
-        } else {
-            $usuario->password = Hash::make($request->new_password);
-            $usuario->save();
-            $message = "Contraseña restablecida exitosamente";
-            $status = "1";
-        }
-
-        return response()->json([
-            'message' => $message,
-            'status' => $status,
-        ]);
-    }
+    
 }
