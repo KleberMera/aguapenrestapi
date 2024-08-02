@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Rest\Controllers\AreasController;
 use App\Rest\Controllers\ProductosController;
 use App\Rest\Controllers\RegistroAreaController;
@@ -10,16 +9,15 @@ use App\Rest\Controllers\RegistroDetalleController;
 use App\Rest\Controllers\RegistroDetalleVehiculosController;
 use App\Rest\Controllers\RegistroVehiculosController;
 use App\Rest\Controllers\RolesController;
-use App\Rest\Controllers\UsuariosController;
+use App\Rest\Controllers\UserController;
 use App\Rest\Controllers\UsuariosTrabajadoresController;
 use App\Rest\Controllers\VehiculosController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Lomkit\Rest\Facades\Rest;
 
-Route::get('/user', function (Request $request) {
+/*Route::get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum');*/
 
 //Rutas de Laravel Rest API CRUD Create, Read, Update, Delete
 Rest::resource('productos', ProductosController::class);
@@ -27,19 +25,25 @@ Rest::resource('usuariostrabajadores', UsuariosTrabajadoresController::class);
 Rest::resource('registros', RegistroController::class);
 Rest::resource('registrosdetalle', RegistroDetalleController::class);
 Rest::resource('roles', RolesController::class);
-Rest::resource('usuarios', UsuariosController::class);
 Rest::resource('areas', AreasController::class);
 Rest::resource('registroareas', RegistroAreaController::class);
 Rest::resource('registrodetalleareas', RegistroDetalleAreasController::class);
 Rest::resource('vehiculos', VehiculosController::class);
 Rest::resource('registrovehiculos', RegistroVehiculosController::class);
 Rest::resource('registrodetallevehiculos', RegistroDetalleVehiculosController::class);
+Rest::resource('users', UserController::class);
 
+
+Route::post('login', [UserController::class, 'login']);
+Route::middleware('auth:sanctum')->post('logout', [UserController::class, 'logout']);
+Route::middleware('auth:sanctum')->get('allusers', [UserController::class, 'AllUsers']);
+Route::middleware('auth:sanctum')->get('users/{id}', [UserController::class, 'show']);
+Route::middleware('auth:sanctum')->get('allusersworkers', [UsuariosTrabajadoresController::class, 'getAllUsuariosTrabajadores']);
 //Obtener todos los datos
-Route::get('/allusersworkers', [UsuariosTrabajadoresController::class, 'getAllUsuariosTrabajadores']);
+
 Route::get('/allproducts', [ProductosController::class, 'getAllProductos']);
 Route::get('/allareas', [AreasController::class, 'getAllAreas']);
-Route::get('/allusersadmin', [UsuariosController::class, 'getAllUsersAdmin']);
+
 Route::get('/allvehiculos', [VehiculosController::class, 'getAllVehiculos']);
 
 //Obtener cantidad de datos
@@ -47,8 +51,7 @@ Route::get('/countusersworkers', [UsuariosTrabajadoresController::class, 'countU
 Route::get('/countproducts', [ProductosController::class, 'countProducts']);
 Route::get('/countareas', [AreasController::class, 'countAreas']);
 
-//Ver datos por id de usuario
-Route::get('/usuarios/{id}', [UsuariosController::class, 'show']);
+
 
 //Ultimo id de registro
 Route::get('/idlastregistro', [RegistroController::class, 'ultimoIdRegistro']);
@@ -69,12 +72,13 @@ Route::get('/obtenerRegistrosConDetallesArea', [RegistroAreaController::class, '
 //Obtener registros con detalles de vehiculo
 Route::get('/obtenerRegistrosConDetallesVehiculos', [RegistroVehiculosController::class, 'obtenerRegistrosConDetallesVehiculos']);
 
-Route::post('/verify-token', [UsuariosController::class, 'verifyToken']);
+Route::post('/login', [UserController::class, 'login']);
+/*Route::post('/verify-token', [UsuariosController::class, 'verifyToken']);
 //Login
-Route::post('/login', [UsuariosController::class, 'login']);
+
 
 //Restablecer contraseña por cédula
 Route::post('/resetpassword', [UsuariosController::class, 'resetPasswordByCedula']);
 
 //Verificar cédula
-Route::post('/verifycedula', [UsuariosController::class, 'verifyCedula']);
+Route::post('/verifycedula', [UsuariosController::class, 'verifyCedula']);*/

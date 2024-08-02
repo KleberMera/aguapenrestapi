@@ -2,6 +2,7 @@
 
 namespace App\Rest\Controllers;
 
+use App\Models\User;
 use App\Models\Usuarios;
 use App\Rest\Controller as RestController;
 use App\Rest\Resources\UsuariosResource;
@@ -25,9 +26,9 @@ class UsuariosController extends RestController
 
 
     // Obtener todos los productos
-    public function  getAllUsersAdmin(Request $request)
+    public function  AllUsers(Request $request)
     {
-        $users = DB::table('usuarios')->get();
+        $users = User::all();
 
         return response()->json([
             'message' => 'Datos obtenidos exitosamente',
