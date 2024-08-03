@@ -31,7 +31,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('codigo_producto', function (Blueprint $table) {
+        Schema::table('productos', function (Blueprint $table) {
             $table->dropColumn('codigo_producto');
 
         });
