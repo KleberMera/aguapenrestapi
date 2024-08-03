@@ -39,7 +39,7 @@ Route::post('/resetpassword', [UserController::class, 'resetPasswordByCedula']);
 Route::post('/verifycedula', [UserController::class, 'verifyCedula']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    
+    Route::post('logout', [UserController::class, 'logout']);
     Route::get('allusers', [UserController::class, 'AllUsers']);
     Route::get('user', [UserController::class, 'show']);
     Route::get('allusersworkers', [UsuariosTrabajadoresController::class, 'getAllUsuariosTrabajadores']);
@@ -48,10 +48,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
 //Obtener todos los datos
 //Route::get('/allproducts', [ProductosController::class, 'getAllProductos']);
-Route::post('/logout', [UserController::class, 'logout']);
 Route::get('/allareas', [AreasController::class, 'getAllAreas']);
 Route::get('/allvehiculos', [VehiculosController::class, 'getAllVehiculos']);
-Route::get('/allproducts', [ProductosController::class, 'getAllProductos']);
+Route::get('allproducts', [ProductosController::class, 'getAllProductos']);
 //Obtener cantidad de datos
 Route::get('/countusersworkers', [UsuariosTrabajadoresController::class, 'countUsersWorkers']);
 Route::get('/countproducts', [ProductosController::class, 'countProducts']);
