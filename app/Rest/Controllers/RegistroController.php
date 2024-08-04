@@ -36,14 +36,15 @@ class RegistroController extends RestController
              ->join('registro_detalles as rd', 'r.id', '=', 'rd.id_registro')
              ->join('productos as p', 'rd.id_producto', '=', 'p.id')
              ->select(
-                 'r.id as id_registro',
-                 'rd.id as id_detalle',
+                 'r.id as id_tbl_registros',
+                 'rd.id as id_tbl_registro_detalles',
                  'u.tx_nombre as nombre',
                  'u.tx_cedula as cedula',
                  'r.fecha_registro',
-                 'p.id as id_producto',
+                 'p.id as id_tbl_productos',
                  'p.nombre_producto',
                  'p.codigo_producto',
+                 'p.stock_producto',
                  'rd.cantidad',
                  'r.observacion',
                  DB::raw('SUM(rd.cantidad) OVER (PARTITION BY r.id) AS total_cantidades')
