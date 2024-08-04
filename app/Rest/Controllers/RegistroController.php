@@ -36,10 +36,12 @@ class RegistroController extends RestController
              ->join('registro_detalles as rd', 'r.id', '=', 'rd.id_registro')
              ->join('productos as p', 'rd.id_producto', '=', 'p.id')
              ->select(
-                 'r.id',
+                 'r.id as id_registro',
+                 'rd.id as id_detalle',
                  'u.tx_nombre as nombre',
                  'u.tx_cedula as cedula',
                  'r.fecha_registro',
+                 'p.id as id_producto',
                  'p.nombre_producto',
                  'p.codigo_producto',
                  'rd.cantidad',
