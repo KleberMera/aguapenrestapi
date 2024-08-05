@@ -42,11 +42,15 @@ class RegistroAreaController extends RestController
               ->join('productos as p', 'rd.id_producto', '=', 'p.id')
               ->join('areas as a', 'r.id_area', '=', 'a.id')
               ->select(
-                  'r.id',
+                  'r.id as id_tbl_registros_areas',
+                  'rd.id as id_tbl_registro_detalle_areas',
                   'r.fecha_registro',
                   'r.hora_registro',
                   'a.nombre_area',
+                  'p.id as id_tbl_productos',
                   'p.nombre_producto',
+                  'p.codigo_producto',
+                  'p.stock_producto',
                   'rd.cantidad',
                   'r.observacion',
                   DB::raw('SUM(rd.cantidad) OVER (PARTITION BY r.id) AS total_cantidades')
