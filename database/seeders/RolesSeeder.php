@@ -12,14 +12,15 @@ class RolesSeeder extends Seeder
      */
     public function run(): void
     {
-        $roles  = new Roles();
+        $roles = [
+            ['nombre_rol' => 'Administrador'],
+            ['nombre_rol' => 'Cliente'],
+            // Puedes agregar más roles aquí si es necesario
+        ];
 
-        $roles->nombre_rol = 'Administrador';
-        $roles->save();
-
-        $roles  = new Roles();
-        $roles->nombre_rol = 'Cliente';
-        $roles->save();
+        foreach ($roles as $role) {
+            Roles::create($role);
+        }
 
         
     }

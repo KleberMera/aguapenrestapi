@@ -36,11 +36,15 @@ class RegistroVehiculosController extends RestController
               ->join('productos as p', 'rd.id_producto', '=', 'p.id')
               ->join('vehiculos as v', 'r.id_vehiculo', '=', 'v.id')
               ->select(
-                  'r.id',
+                  'r.id as id_tbl_registros_vehiculos',
+                  'rd.id as id_tbl_registro_detalle_vehiculos',
                   'r.fecha_registro',
                   'r.hora_registro',
                   'v.placa',
+                  'p.id as id_tbl_productos',
                   'p.nombre_producto',
+                  'p.codigo_producto',
+                  'p.stock_producto',
                   'rd.cantidad',
                   'r.observacion',
                   DB::raw('SUM(rd.cantidad) OVER (PARTITION BY r.id) AS total_cantidades')
