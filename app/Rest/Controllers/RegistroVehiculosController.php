@@ -47,6 +47,7 @@ class RegistroVehiculosController extends RestController
                   'p.stock_producto',
                   'rd.cantidad',
                   'r.observacion',
+                  'r.estado_registro',
                   DB::raw('SUM(rd.cantidad) OVER (PARTITION BY r.id) AS total_cantidades')
               )
               ->orderBy('r.id')

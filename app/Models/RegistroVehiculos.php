@@ -13,5 +13,6 @@ class RegistroVehiculos extends Model
         'fecha_registro',
         'hora_registro',
         'observacion',
+        'estado_registro',
     ];
 }

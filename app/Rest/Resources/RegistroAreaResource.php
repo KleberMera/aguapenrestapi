@@ -26,7 +26,8 @@ class RegistroAreaResource extends RestResource
             'id_area',
             'fecha_registro',
             'hora_registro',
-            'observacion'
+            'observacion',
+            'estado_registro'
         ];
     }
 

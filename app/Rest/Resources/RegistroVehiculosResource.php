@@ -27,6 +27,7 @@ class RegistroVehiculosResource extends RestResource
             'fecha_registro',
             'hora_registro',
             'observacion',
+            'estado_registro',
         ];
     }
 
