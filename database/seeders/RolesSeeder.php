@@ -15,6 +15,7 @@ class RolesSeeder extends Seeder
         $roles = [
             ['nombre_rol' => 'Administrador'],
             ['nombre_rol' => 'Cliente'],
+            ['nombre_rol' => 'Visualizador'],
             // Puedes agregar más roles aquí si es necesario
         ];
 
