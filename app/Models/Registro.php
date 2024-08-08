@@ -13,6 +13,7 @@ class Registro extends Model
         'fecha_registro',
         'hora_registro',
         'observacion',
+        'imagen',
         'estado_registro',
     ];
 }

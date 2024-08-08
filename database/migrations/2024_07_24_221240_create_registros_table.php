@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('fecha_registro');
             $table->time('hora_registro');
             $table->string('observacion')->nullable();
+            $table->string('imagen')->nullable();
             $table->integer('estado_registro')->default(1)->nullable();
             $table->timestamps();
         });

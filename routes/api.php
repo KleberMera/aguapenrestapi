@@ -76,3 +76,6 @@ Route::get('/obtenerRegistrosConDetallesArea', [RegistroAreaController::class, '
 
 //Obtener registros con detalles de vehiculo
 Route::get('/obtenerRegistrosConDetallesVehiculos', [RegistroVehiculosController::class, 'obtenerRegistrosConDetallesVehiculos']);
+
+
+Route::post('registros/{id}/imagen', [RegistroController::class, 'subirImagen']);

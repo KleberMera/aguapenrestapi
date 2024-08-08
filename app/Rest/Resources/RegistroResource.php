@@ -27,6 +27,7 @@ class RegistroResource extends RestResource
             'fecha_registro',
             'hora_registro',
             'observacion',
+            'imagen',
             'estado_registro',
 
         ];
