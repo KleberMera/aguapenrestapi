@@ -1,6 +1,7 @@
 <?php
 
 use App\Rest\Controllers\AreasController;
+use App\Rest\Controllers\ContadorReportesController;
 use App\Rest\Controllers\ProductosController;
 use App\Rest\Controllers\RegistroAreaController;
 use App\Rest\Controllers\RegistroController;
@@ -32,6 +33,7 @@ Rest::resource('vehiculos', VehiculosController::class);
 Rest::resource('registrovehiculos', RegistroVehiculosController::class);
 Rest::resource('registrodetallevehiculos', RegistroDetalleVehiculosController::class);
 Rest::resource('users', UserController::class);
+Rest::resource('contador', ContadorReportesController::class);
 
 
 Route::post('login', [UserController::class, 'login']);
