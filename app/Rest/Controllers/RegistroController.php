@@ -43,6 +43,7 @@ class RegistroController extends RestController
                  'rd.id as id_tbl_registro_detalles',
                  'u.tx_nombre as nombre',
                  'u.tx_cedula as cedula',
+                 'u.tx_cargo as cargo',
                  'r.fecha_registro',
                  'p.id as id_tbl_productos',
                  'p.nombre_producto',
