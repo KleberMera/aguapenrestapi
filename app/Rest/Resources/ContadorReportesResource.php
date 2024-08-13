@@ -25,7 +25,10 @@ class ContadorReportesResource extends RestResource
             'id',
             'trabajadores_anulados',
             'areas_anuladas',
-            'vehiculos_anulados'
+            'vehiculos_anulados',
+            'trabajadores',
+            'areas',
+            'vehiculos'
         ];
     }
 

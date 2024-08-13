@@ -19,6 +19,9 @@ class ContadorReportesSeeder extends Seeder
                 'trabajadores_anulados' => 0,
                 'areas_anuladas' => 0,
                 'vehiculos_anulados' => 0,
+                'trabajadores' => 0,
+                'areas' => 0,
+                'vehiculos' => 0
             ]
         ];
 

@@ -9,5 +9,5 @@ class ContadorReportes extends Model
 {
     use HasFactory;
 
-    protected  $fillable = ['trabajadores_anulados', 'areas_anuladas', 'vehiculos_anulados'];
+    protected  $fillable = ['trabajadores_anulados', 'areas_anuladas', 'vehiculos_anulados', 'trabajadores', 'areas', 'vehiculos'];
 }

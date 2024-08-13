@@ -16,6 +16,9 @@ return new class extends Migration
             $table->integer('trabajadores_anulados')->default(0);
             $table->integer('areas_anuladas')->default(0);
             $table->integer('vehiculos_anulados')->default(0);  
+            $table->integer('trabajadores')->default(0);
+            $table->integer('areas')->default(0);
+            $table->integer('vehiculos')->default(0);
             $table->timestamps();
         });
     }
