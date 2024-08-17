@@ -40,7 +40,10 @@ class PermisosController extends RestController
         ->orderBy('opciones.label')
         ->get();
 
-    return response()->json($permisos);
+    return response()->json([
+        'message' => 'Datos obtenidos exitosamente',
+        'data' => $permisos,
+    ]);
 }
 
 
@@ -68,7 +71,10 @@ class PermisosController extends RestController
         ->orderBy('opciones.label')
         ->get();
 
-    return response()->json($permisos);
+    return response()->json([
+        'message' => 'Datos obtenidos exitosamente',
+        'data' => $permisos,
+    ]);
 }
 
 }

@@ -45,7 +45,6 @@ class UserController extends RestController
         return response()->json([
             'usuario' => [
                 'id' => $user->id,
-                'rol_id' => $user->rol_id,
                 'nombres' => $user->nombres,
                 'apellidos' => $user->apellidos,
             ],
