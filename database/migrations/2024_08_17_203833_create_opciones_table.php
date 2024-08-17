@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-       /* Schema::create('roles', function (Blueprint $table) {
+        Schema::create('opciones', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_rol');
+            $table->foreignId('menu_id')->constrained('menus')->onDelete('cascade');
+            $table->string('label');
+            $table->string('icon');
+            $table->string('routerLink');
             $table->timestamps();
-        });*/
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('opciones');
     }
 };

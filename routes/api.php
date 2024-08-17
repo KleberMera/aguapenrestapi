@@ -2,6 +2,10 @@
 
 use App\Rest\Controllers\AreasController;
 use App\Rest\Controllers\ContadorReportesController;
+use App\Rest\Controllers\MenusController;
+use App\Rest\Controllers\ModulosController;
+use App\Rest\Controllers\OpcionesController;
+use App\Rest\Controllers\PermisosController;
 use App\Rest\Controllers\ProductosController;
 use App\Rest\Controllers\RegistroAreaController;
 use App\Rest\Controllers\RegistroController;
@@ -34,6 +38,10 @@ Rest::resource('registrovehiculos', RegistroVehiculosController::class);
 Rest::resource('registrodetallevehiculos', RegistroDetalleVehiculosController::class);
 Rest::resource('users', UserController::class);
 Rest::resource('contador', ContadorReportesController::class);
+Rest::resource('modulos', ModulosController::class);
+Rest::resource('menus', MenusController::class);
+Rest::resource('opciones', OpcionesController::class);
+Rest::resource('permisos', PermisosController::class);
 
 
 Route::post('login', [UserController::class, 'login']);

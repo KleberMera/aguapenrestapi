@@ -2,17 +2,17 @@
 
 namespace App\Rest\Resources;
 
-use App\Models\User;
+use App\Models\Menus;
 use App\Rest\Resource as RestResource;
 
-class UserResource extends RestResource
+class MenusResource extends RestResource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var class-string<\Illuminate\Database\Eloquent\Model>
      */
-    public static $model = User::class;
+    public static $model = Menus::class;
 
     /**
      * The exposed fields that could be provided
@@ -23,14 +23,8 @@ class UserResource extends RestResource
     {
         return [
             'id',
-            'cedula',
-            'telefono',
-            'nombres',
-            'apellidos',
-            'email',
-            'usuario',
-            'password',
-           
+            'nombre_menu',
+            'modulo_id'
         ];
     }
 
