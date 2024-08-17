@@ -89,3 +89,7 @@ Route::get('/obtenerRegistrosConDetallesVehiculos', [RegistroVehiculosController
 
 
 Route::post('registros/{id}/imagen', [RegistroController::class, 'subirImagen']);
+
+
+Route::get('/permisosmenus/{userId}', [PermisosController::class, 'getPermisosByUser']);
+Route::get('/permisosmenus', [PermisosController::class, 'getAllPermisos']);
