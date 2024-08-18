@@ -56,7 +56,6 @@ class PermisosController extends RestController
         ->join('menus', 'opciones.menu_id', '=', 'menus.id')
         ->join('modulos', 'menus.modulo_id', '=', 'modulos.id')
         ->select(
-            'permisos.user_id',
             'modulos.nombre_modulo',
             'menus.nombre_menu',
             'opciones.label AS opcion_label',
@@ -65,7 +64,6 @@ class PermisosController extends RestController
             'permisos.per_ver',
             'permisos.per_editar'
         )
-        ->orderBy('permisos.user_id')
         ->orderBy('modulos.nombre_modulo')
         ->orderBy('menus.nombre_menu')
         ->orderBy('opciones.label')

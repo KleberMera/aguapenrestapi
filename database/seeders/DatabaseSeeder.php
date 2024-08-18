@@ -21,7 +21,11 @@ class DatabaseSeeder extends Seeder
         $this->call(VehiculosSeeder::class);
         $this->call(AreasSeeder::class);
         $this->call(ContadorReportesSeeder::class);
+        $this->call(UsersSeeder::class);
         $this->call(SeguridadIndustrialSeeder::class);
+        $this->call(TicsSeeder::class);
+        $this->call(PermisosSeeder::class);
+     
         
     }
 }

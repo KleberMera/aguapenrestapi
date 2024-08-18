@@ -16,17 +16,11 @@ class SeguridadIndustrialSeeder extends Seeder
         // Insertar el módulo "Seguridad Industrial"
         $moduloId = DB::table('modulos')->insertGetId([
             'nombre_modulo' => 'Seguridad Industrial',
-            'created_at' => now(),
-            'updated_at' => now(),
         ]);
 
         // Insertar los menús
         $menus = [
-            'Home' => [
-                ['label' => 'Dashboard', 'icon' => 'pi pi-home', 'routerLink' => '/home/dashboard'],
-            ],
             'Opciones' => [
-                ['label' => 'Usuarios', 'icon' => 'pi pi-user', 'routerLink' => '/home/roles'],
                 ['label' => 'Areas', 'icon' => 'pi pi-map-marker', 'routerLink' => '/home/areas'],
                 ['label' => 'Productos', 'icon' => 'pi pi-shop', 'routerLink' => '/home/productos'],
                 ['label' => 'Vehiculos', 'icon' => 'pi pi-car', 'routerLink' => '/home/vehiculos'],
