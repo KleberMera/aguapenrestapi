@@ -61,6 +61,7 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::get('/allareas', [AreasController::class, 'getAllAreas']);
 Route::get('/allvehiculos', [VehiculosController::class, 'getAllVehiculos']);
 Route::get('allproducts', [ProductosController::class, 'getAllProductos']);
+Route::get('allmodulos', [ModulosController::class, 'getModulosWithMenusAndOpciones']);
 //Obtener cantidad de datos
 Route::get('/countusersworkers', [UsuariosTrabajadoresController::class, 'countUsersWorkers']);
 Route::get('/countproducts', [ProductosController::class, 'countProducts']);
