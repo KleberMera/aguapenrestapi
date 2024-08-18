@@ -31,6 +31,7 @@ class PermisosController extends RestController
             'opciones.label AS opcion_label',
             'opciones.icon AS opcion_icon',
             'opciones.routerLink AS opcion_routerLink',
+            'permisos.id AS permiso_id',
             'permisos.per_ver',
             'permisos.per_editar'
         )
