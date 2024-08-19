@@ -28,6 +28,7 @@ class PermisosController extends RestController
         ->select(
             'modulos.nombre_modulo',
             'menus.nombre_menu',
+            'opciones.id AS opcion_id',
             'opciones.label AS opcion_label',
             'opciones.icon AS opcion_icon',
             'opciones.routerLink AS opcion_routerLink',
