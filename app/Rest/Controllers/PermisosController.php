@@ -27,6 +27,7 @@ class PermisosController extends RestController
         ->join('modulos', 'menus.modulo_id', '=', 'modulos.id')
         ->select(
             'modulos.nombre_modulo',
+            'modulos.id AS modulo_id',
             'menus.nombre_menu',
             'opciones.id AS opcion_id',
             'opciones.label AS opcion_label',
