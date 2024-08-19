@@ -23,8 +23,7 @@ class SeguridadIndustrialSeeder extends Seeder
             'Opciones' => [
                 ['label' => 'Areas', 'icon' => 'pi pi-map-marker', 'routerLink' => '/home/areas'],
                 ['label' => 'Productos', 'icon' => 'pi pi-shop', 'routerLink' => '/home/productos'],
-                ['label' => 'Vehiculos', 'icon' => 'pi pi-car', 'routerLink' => '/home/vehiculos'],
-                ['label' => 'Trabajadores', 'icon' => 'pi pi-users', 'routerLink' => '/home/trabajadores'],
+                ['label' => 'Vehiculos', 'icon' => 'pi pi-car', 'routerLink' => '/home/vehiculos'],                
                 ['label' => 'Editar/Eliminar', 'icon' => 'pi pi-pencil', 'routerLink' => '/home/editar-eliminar'],
             ],
             'Asignaciones' => [

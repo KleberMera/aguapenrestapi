@@ -23,7 +23,8 @@ class TicsSeeder extends Seeder
         // Insertar los menús
         $menus = [
             'Opciones' => [
-                ['label' => 'Usuarios', 'icon' => 'pi pi-user', 'routerLink' => '/home/roles'],
+                ['label' => 'Roles', 'icon' => 'pi pi-user', 'routerLink' => '/home/roles'],
+                ['label' => 'Trabajadores', 'icon' => 'pi pi-users', 'routerLink' => '/home/trabajadores'],
                 ['label' => 'Prueba', 'icon' => 'pi pi-cog', 'routerLink' => '/home/prueba'],
                 ['label' => 'Prueba2', 'icon' => 'pi pi-cog', 'routerLink' => '/home/prueba2'],
             ],
