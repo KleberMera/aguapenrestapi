@@ -14,6 +14,7 @@ class UsuariosTrabajadores extends Model
         'tx_cargo',
         'tx_area',
         'tx_correo',
+        'dt_status'
     ];
 
 }

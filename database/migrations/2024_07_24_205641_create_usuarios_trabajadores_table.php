@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('tx_cargo');
             $table->string('tx_area');
             $table->string('tx_correo')->nullable();
+            $table->integer('dt_status')->nullable()->default(0);
             $table->timestamps();
         });
     }

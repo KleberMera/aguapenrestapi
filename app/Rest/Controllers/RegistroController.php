@@ -66,37 +66,39 @@ class RegistroController extends RestController
 
 
 
-     // La función para subir la imagen
-    public function subirImagen(Request $request, $id)
-    {
-        // Validar la solicitud
-        $validator = Validator::make($request->all(), [
-            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+ // La función para subir la imagen
+ public function subirImagen(Request $request, $id)
+ {
+     // Validar la solicitud
+     $validator = Validator::make($request->all(), [
+         'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+     ]);
 
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 400);
-        }
+     if ($validator->fails()) {
+         return response()->json(['error' => $validator->errors()], 400);
+     }
 
-        // Buscar el registro
-        $registro = Registro::find($id);
-        if (!$registro) {
-            return response()->json(['error' => 'Registro no encontrado'], 404);
-        }
+     // Buscar el registro
+     $registro = Registro::find($id);
+     if (!$registro) {
+         return response()->json(['error' => 'Registro no encontrado'], 404);
+     }
 
-        // Manejar la imagen
-        if ($request->hasFile('imagen')) {
-            $file = $request->file('imagen');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('public/imagenes', $filename);
+     // Manejar la imagen
+     if ($request->hasFile('imagen')) {
+         $file = $request->file('imagen');
+         $filename = time() . '_' . $file->getClientOriginalName();
+         $path = $file->storeAs('public/imagenes', $filename);
 
-            // Actualizar el registro con la ruta de la imagen
-            $registro->imagen = Storage::url($path);
-            $registro->save();
+         // Actualizar el registro con la ruta de la imagen
+         $registro->imagen = Storage::url($path);
+         $registro->save();
 
-            return response()->json(['success' => 'Imagen subida correctamente', 'ruta_imagen' => $registro->imagen], 200);
-        }
+         return response()->json(['success' => 'Imagen subida correctamente', 'ruta_imagen' => $registro->imagen], 200);
+     }
 
-        return response()->json(['error' => 'No se pudo subir la imagen'], 500);
-    }
+     return response()->json(['error' => 'No se pudo subir la imagen'], 500);
+ }
+
+
 }
