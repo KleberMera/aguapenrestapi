@@ -26,7 +26,7 @@ class TicsSeeder extends Seeder
                 ['label' => 'Roles', 'icon' => 'pi pi-user', 'routerLink' => '/home/roles'],
                 ['label' => 'Trabajadores', 'icon' => 'pi pi-users', 'routerLink' => '/home/trabajadores'],
                 ['label' => 'Pages', 'icon' => 'pi pi-cog', 'routerLink' => '/home/editpages'],
-                ['label' => 'Prueba2', 'icon' => 'pi pi-cog', 'routerLink' => '/home/prueba2'],
+               
             ],
         ];
 
