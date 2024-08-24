@@ -15,7 +15,7 @@ class TicsSeeder extends Seeder
     {
         // Insertar el módulo "Tecnologia de la Informacion"
         $moduloId = DB::table('modulos')->insertGetId([
-            'nombre_modulo' => 'Tecnologia de la Informacion',
+            'nombre_modulo' => 'Tics',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -25,7 +25,7 @@ class TicsSeeder extends Seeder
             'Opciones' => [
                 ['label' => 'Roles', 'icon' => 'pi pi-user', 'routerLink' => '/home/roles'],
                 ['label' => 'Trabajadores', 'icon' => 'pi pi-users', 'routerLink' => '/home/trabajadores'],
-                ['label' => 'Prueba', 'icon' => 'pi pi-cog', 'routerLink' => '/home/prueba'],
+                ['label' => 'Pages', 'icon' => 'pi pi-cog', 'routerLink' => '/home/editpages'],
                 ['label' => 'Prueba2', 'icon' => 'pi pi-cog', 'routerLink' => '/home/prueba2'],
             ],
         ];
