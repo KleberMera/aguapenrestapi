@@ -12,5 +12,6 @@ class Vehiculos extends Model
         'placa',
         'tipo',
         'descripcion',
+        'estado',
     ];
 }

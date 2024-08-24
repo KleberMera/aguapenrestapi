@@ -35,7 +35,7 @@ class ProductosSeeder extends Seeder
             ['id' => 19, 'codigo_producto' => '019', 'nombre_producto' => 'Impermeable c12', 'fecha_producto' => '2024-07-23', 'hora_producto' => '18:51:00', 'stock_producto' => 19, 'estado_producto' => 1],
             ['id' => 20, 'codigo_producto' => '020', 'nombre_producto' => 'Impermeables (amarillos)', 'fecha_producto' => '2024-07-31', 'hora_producto' => '09:49:00', 'stock_producto' => 34, 'estado_producto' => 1],
             ['id' => 21, 'codigo_producto' => '021', 'nombre_producto' => 'Impermeables (azules)', 'fecha_producto' => '2024-07-14', 'hora_producto' => '09:49:00', 'stock_producto' => 3, 'estado_producto' => 1],
-            ['id' => 22, 'codigo_producto' => '022', 'nombre_producto' => 'Jabón', 'fecha_producto' => '2024-07-14', 'hora_producto' => '17:30:00', 'stock_producto' => 0, 'estado_producto' => 0, 'created_at' => NULL, 'updated_at' => '2024-08-04 22:51:30'],
+            ['id' => 22, 'codigo_producto' => '022', 'nombre_producto' => 'Jabón', 'fecha_producto' => '2024-07-14', 'hora_producto' => '17:30:00', 'stock_producto' => 0, 'estado_producto' => 0,],
             ['id' => 23, 'codigo_producto' => '023', 'nombre_producto' => 'Kit de primeros auxilios', 'fecha_producto' => '2024-07-14', 'hora_producto' => '17:30:00', 'stock_producto' => 0, 'estado_producto' => 0],
             ['id' => 24, 'codigo_producto' => '024', 'nombre_producto' => 'Macareñas', 'fecha_producto' => '2024-07-14', 'hora_producto' => '22:01:00', 'stock_producto' => 30, 'estado_producto' => 1],
             ['id' => 25, 'codigo_producto' => '025', 'nombre_producto' => 'Manguera fumigación', 'fecha_producto' => '2024-07-14', 'hora_producto' => '17:29:00', 'stock_producto' => 4, 'estado_producto' => 1],

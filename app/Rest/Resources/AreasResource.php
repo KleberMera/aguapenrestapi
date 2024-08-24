@@ -23,7 +23,8 @@ class AreasResource extends RestResource
     {
         return [
             'id',
-            'nombre_area'
+            'nombre_area',
+            'estado'
         ];
     }
 

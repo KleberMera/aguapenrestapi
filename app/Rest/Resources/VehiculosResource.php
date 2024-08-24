@@ -26,6 +26,7 @@ class VehiculosResource extends RestResource
             'tipo',
             'placa',
             'descripcion',
+            'estado',
         ];
     }
 

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('tipo');
             $table->string('placa')->unique();
             $table->string('descripcion');
+            $table->integer('estado')->nullable()->default(0);
             $table->timestamps();
         });
     }
