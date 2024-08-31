@@ -15,13 +15,13 @@ class UsersSeeder extends Seeder
     {
         $users = [
             [
-                'cedula' => '0000000000',
-                'telefono' => '1234567890',
-                'nombres' => 'User',
-                'apellidos' => 'Admin',
-                'email' => 'admin@gmail.com',
-                'usuario' => 'admin',
-                'password' => 'admin',
+                'cedula' => '0923827604',
+                'telefono' => '',
+                'nombres' => 'Angel Orlin',
+                'apellidos' => 'Tomala Mendoza',
+                'email' => 'atomala@aguapen.gob.ec',
+                'usuario' => 'atomala',
+                'password' => '0923827604',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
