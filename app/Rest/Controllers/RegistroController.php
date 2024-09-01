@@ -42,8 +42,7 @@ class RegistroController extends RestController
              ->select(
                  'r.id as id_tbl_registros',
                  'rd.id as id_tbl_registro_detalles',
-                 'us.nombres as nombres',
-                 'us.apellidos as apellidos',
+                 DB::raw("CONCAT(us.apellidos, ' ', us.nombres) as nombre_completo"),
                  'u.tx_nombre as nombre',
                  'u.tx_cedula as cedula',
                  'u.tx_cargo as cargo',
