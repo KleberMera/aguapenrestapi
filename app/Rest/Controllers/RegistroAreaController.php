@@ -41,9 +41,11 @@ class RegistroAreaController extends RestController
               ->join('registro_detalle_areas as rd', 'r.id', '=', 'rd.id_registro_area')
               ->join('productos as p', 'rd.id_producto', '=', 'p.id')
               ->join('areas as a', 'r.id_area', '=', 'a.id')
+              ->join('users as us', 'r.id_user_registro', '=', 'us.id')
               ->select(
                   'r.id as id_tbl_registros_areas',
                   'rd.id as id_tbl_registro_detalle_areas',
+                  DB::raw("CONCAT(us.apellidos, ' ', us.nombres) as nombre_completo"),
                   'r.fecha_registro',
                   'r.hora_registro',
                   'a.nombre_area',

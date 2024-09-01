@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('registro_areas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_area')->constrained('areas')->onDelete('cascade');
+            $table->foreignId('id_user_registro')->constrained('users')->onDelete('cascade');
             $table->date('fecha_registro')->nullable();
             $table->time('hora_registro')->nullable();
             $table->string('observacion')->nullable();

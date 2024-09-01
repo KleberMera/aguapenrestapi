@@ -24,6 +24,7 @@ class RegistroVehiculosResource extends RestResource
         return [
             'id',
             'id_vehiculo',
+            'id_user_registro',
             'fecha_registro',
             'hora_registro',
             'observacion',

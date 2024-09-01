@@ -35,9 +35,11 @@ class RegistroVehiculosController extends RestController
               ->join('registro_detalle_vehiculos as rd', 'r.id', '=', 'rd.id_registro_vehiculo')
               ->join('productos as p', 'rd.id_producto', '=', 'p.id')
               ->join('vehiculos as v', 'r.id_vehiculo', '=', 'v.id')
+              ->join('users as us', 'r.id_user_registro', '=', 'us.id')
               ->select(
                   'r.id as id_tbl_registros_vehiculos',
                   'rd.id as id_tbl_registro_detalle_vehiculos',
+                  DB::raw("CONCAT(us.apellidos, ' ', us.nombres) as nombre_completo"),
                   'r.fecha_registro',
                   'r.hora_registro',
                   'v.placa',

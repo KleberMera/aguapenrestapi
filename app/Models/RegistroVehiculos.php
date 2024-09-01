@@ -10,6 +10,7 @@ class RegistroVehiculos extends Model
     use HasFactory;
     protected $fillable = [
         'id_vehiculo',
+        'id_user_registro',
         'fecha_registro',
         'hora_registro',
         'observacion',
