@@ -42,7 +42,7 @@ class RegistroController extends RestController
              ->select(
                  'r.id as id_tbl_registros',
                  'rd.id as id_tbl_registro_detalles',
-                 'us.nombres as nombre',
+                 'us.nombres as nombres',
                  'us.apellidos as apellidos',
                  'u.tx_nombre as nombre',
                  'u.tx_cedula as cedula',
