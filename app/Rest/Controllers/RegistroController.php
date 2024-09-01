@@ -38,9 +38,12 @@ class RegistroController extends RestController
              ->join('usuarios_trabajadores as u', 'r.id_usuario', '=', 'u.id')
              ->join('registro_detalles as rd', 'r.id', '=', 'rd.id_registro')
              ->join('productos as p', 'rd.id_producto', '=', 'p.id')
+             ->join('users as us', 'r.id_user_registro', '=', 'us.id')
              ->select(
                  'r.id as id_tbl_registros',
                  'rd.id as id_tbl_registro_detalles',
+                 'us.nombres as nombre',
+                 'us.apellidos as apellidos',
                  'u.tx_nombre as nombre',
                  'u.tx_cedula as cedula',
                  'u.tx_cargo as cargo',
