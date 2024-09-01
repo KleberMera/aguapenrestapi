@@ -24,6 +24,7 @@ class RegistroResource extends RestResource
         return [
             'id',
             'id_usuario',
+            'id_user_registro',
             'fecha_registro',
             'hora_registro',
             'observacion',
