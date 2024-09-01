@@ -24,19 +24,20 @@ class SeguridadIndustrialSeeder extends Seeder
                 ['label' => 'Areas', 'icon' => 'pi pi-map-marker', 'routerLink' => '/home/areas'],
                 ['label' => 'Productos', 'icon' => 'pi pi-shop', 'routerLink' => '/home/productos'],
                 ['label' => 'Vehiculos', 'icon' => 'pi pi-car', 'routerLink' => '/home/vehiculos'],                
-                ['label' => 'Editar/Eliminar', 'icon' => 'pi pi-pencil', 'routerLink' => '/home/editar-eliminar'],
+               
             ],
             'Asignaciones' => [
                 ['label' => 'A. Productos', 'icon' => 'pi pi-list-check', 'routerLink' => '/home/registros'],
                 ['label' => 'A. Areas', 'icon' => 'pi pi-list-check', 'routerLink' => '/home/registros-areas'],
                 ['label' => 'A. Vehiculos', 'icon' => 'pi pi-list-check', 'routerLink' => '/home/registros-vehiculos'],
+                ['label' => 'Anular Registros', 'icon' => 'pi pi-pencil', 'routerLink' => '/home/editar-eliminar'],
             ],
             'Reportes' => [
-                ['label' => 'Areas', 'icon' => 'pi pi-map-marker', 'routerLink' => '/home/reportes-areas'],
-                ['label' => 'Vehiculos', 'icon' => 'pi pi-car', 'routerLink' => '/home/reportes-vehiculos'],
-                ['label' => 'General', 'icon' => 'pi pi-th-large', 'routerLink' => '/home/reportes'],
-                ['label' => 'Detalles', 'icon' => 'pi pi-id-card', 'routerLink' => '/home/reportes-usuarios'],
-                ['label' => 'Anulados', 'icon' => 'pi pi-exclamation-triangle', 'routerLink' => '/home/anulados'],
+                ['label' => 'R. Areas', 'icon' => 'pi pi-map-marker', 'routerLink' => '/home/reportes-areas'],
+                ['label' => 'R. Vehiculos', 'icon' => 'pi pi-car', 'routerLink' => '/home/reportes-vehiculos'],
+                ['label' => 'R. General', 'icon' => 'pi pi-th-large', 'routerLink' => '/home/reportes'],
+                ['label' => 'R. Detalles', 'icon' => 'pi pi-id-card', 'routerLink' => '/home/reportes-usuarios'],
+                ['label' => 'R. Anulados', 'icon' => 'pi pi-exclamation-triangle', 'routerLink' => '/home/anulados'],
             ],
         ];
 
