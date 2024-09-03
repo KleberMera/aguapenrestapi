@@ -25,23 +25,28 @@ class UserController extends RestController
             'usuario' => 'required|string',
             'password' => 'required|string',
         ]);
-
-
+    
         $user = User::where('usuario', $request->usuario)->first();
-
-
+    
         if (!$user) {
             return response()->json([
                 'message' => 'El usuario no existe.',
             ], 404);
         }
-
+    
         if (!Hash::check($request->password, $user->password)) {
             return response()->json([
                 'message' => 'Contraseña incorrecta.',
             ], 401);
         }
-
+    
+        // Verificar el estado del usuario
+        if ($user->estado !== 1) {
+            return response()->json([
+                'message' => 'El usuario no tiene permisos para ingresar.',
+            ], 403); // 403 Forbidden
+        }
+    
         return response()->json([
             'usuario' => [
                 'id' => $user->id,
@@ -51,6 +56,7 @@ class UserController extends RestController
             'token' => $user->createToken('auth_token')->plainTextToken,
         ]);
     }
+    
 
     public function  AllUsers(Request $request)
     {
