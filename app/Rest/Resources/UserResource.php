@@ -30,6 +30,7 @@ class UserResource extends RestResource
             'email',
             'usuario',
             'password',
+            'estado',
            
         ];
     }
