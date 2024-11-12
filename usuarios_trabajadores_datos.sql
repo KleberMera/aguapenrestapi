@@ -1087,6 +1087,6 @@ INSERT INTO `usuarios_trabajadores` (`id`, `tx_nombre`, `tx_cedula`, `tx_cargo`,
 (1083, 'MATAMOROS ZAMBRANO EDISON DAVID', '0926258229', 'ASISTENTE ADMINISTRATIVO', 'COMERCIAL', 'eramones@aguapen.gob.ec', 1, 'ematamoros'),
 (1084, 'SALINAS PRUDENTE JOHN NELSON', '0922158423', 'AUXILIAR DE CUADRILLAS', 'CARTERA', 'eramones@aguapen.gob.ec', 1, 'jsalinasp'),
 (1085, 'ALEJANDRO BELTRAN ROGER ALEXANDER', '0928070945', 'AUXILIAR DE CUADRILLAS', 'CARTERA', 'eramones@aguapen.gob.ec', 1, 'ralejandr');
-COMMIT;
+
 
 
