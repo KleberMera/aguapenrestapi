@@ -48,6 +48,7 @@ class TicsSeeder extends Seeder
                     'routerLink' => $opcion['routerLink'],
                     'created_at' => now(),
                     'updated_at' => now(),
+                    
                 ]);
             }
         }
